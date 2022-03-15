@@ -9,7 +9,8 @@
         android:id="@+id/navigation_home"
         android:name="com.joaoovf.jobsity.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +23,10 @@
         android:name="com.joaoovf.jobsity.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+            android:id="@+id/navigation_search"
+            android:name="com.joaoovf.jobsity.ui.search.SearchFragment"
+            android:label="SearchFragment"
+            tools:layout="@layout/fragment_search"/>
 </navigation>

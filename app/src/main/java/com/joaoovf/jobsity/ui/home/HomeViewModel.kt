@@ -1,13 +1,20 @@
 package com.joaoovf.jobsity.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.joaoovf.jobsity.domain.interactor.LoadShowsPagedUseCase
+import com.joaoovf.jobsity.domain.model.Show
+import kotlinx.coroutines.flow.Flow
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(loadShowsPagedUseCase: LoadShowsPagedUseCase) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+	val pagingDataFlow: Flow<PagingData<Show>> =
+		loadShowsPagedUseCase(PAGE_SIZE).cachedIn(viewModelScope)
+
+	companion object {
+		private const val PAGE_SIZE = 250
+	}
+
 }
