@@ -16,13 +16,17 @@
 	</fragment>
 
 	<fragment
-			android:id="@+id/navigation_dashboard"
-			android:name="com.joaoovf.jobsity.ui.dashboard.DashboardFragment"
-			android:label="@string/title_dashboard"
-			tools:layout="@layout/fragment_dashboard" />
+			android:id="@+id/navigation_favorites"
+			android:name="com.joaoovf.jobsity.ui.favorite.FavoriteFragment"
+			android:label="@string/title_favorites"
+			tools:layout="@layout/fragment_favorites" >
+		<action
+				android:id="@+id/action_navigation_favorites_to_navigation_detail"
+				app:destination="@id/navigation_detail" />
+	</fragment>
 
 	<fragment
-			android:id="@+id/navigation_notifications"
+			android:id="@+id/navigation_favorites2"
 			android:name="com.joaoovf.jobsity.ui.notifications.NotificationsFragment"
 			android:label="@string/title_notifications"
 			tools:layout="@layout/fragment_notifications" />
@@ -30,10 +34,14 @@
 	<fragment
 			android:id="@+id/navigation_detail"
 			android:name="com.joaoovf.jobsity.ui.detail.DetailFragment"
-			tools:layout="@layout/fragment_detail">
+			tools:layout="@layout/fragment_detail"
+			android:label="{title}">
 		<argument
 				android:name="showId"
 				app:argType="integer" />
+		<argument
+				android:name="title"
+				app:argType="string" />
 		<action
 				android:id="@+id/action_navigation_detail_to_detailEpisodeFragment"
 				app:destination="@id/navigation_detail_episode" />
@@ -42,9 +50,13 @@
 	<fragment
 			android:id="@+id/navigation_detail_episode"
 			android:name="com.joaoovf.jobsity.ui.detail.DetailEpisodeFragment"
+			android:label="{title}"
 			tools:layout="@layout/fragment_episode_detail">
 		<argument
 				android:name="episodeId"
 				app:argType="integer" />
+		<argument
+				android:name="title"
+				app:argType="string" />
 	</fragment>
 </navigation>

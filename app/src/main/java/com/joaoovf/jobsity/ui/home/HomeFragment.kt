@@ -1,7 +1,11 @@
 package com.joaoovf.jobsity.ui.home
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
@@ -9,10 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.joaoovf.jobsity.R
 import com.joaoovf.jobsity.databinding.FragmentHomeBinding
 import com.joaoovf.jobsity.domain.base.BaseFragment
-import com.joaoovf.jobsity.domain.extension.collectInput
-import com.joaoovf.jobsity.domain.extension.gone
-import com.joaoovf.jobsity.domain.extension.safeFlowCollect
-import com.joaoovf.jobsity.domain.extension.show
+import com.joaoovf.jobsity.domain.extension.*
 import com.joaoovf.jobsity.ui.ComponentViewModel
 import com.joaoovf.jobsity.ui.Components
 import kotlinx.coroutines.flow.collectLatest
@@ -28,8 +29,27 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 	private val viewModel: HomeViewModel by viewModel()
 	private val adapter = HomeAdapter {
 		findNavController().navigate(
-			HomeFragmentDirections.actionNavigationHomeToNavigationDetail(it.id)
+			HomeFragmentDirections.actionNavigationHomeToNavigationDetail(it.id, it.name)
 		)
+	}
+
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setHasOptionsMenu(true)
+	}
+
+	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+		inflater.inflate(R.menu.search_menu, menu)
+		super.onCreateOptionsMenu(menu, inflater)
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		if (item.itemId == R.id.menuSearch) {
+			binding.includeSearch.root.apply {
+				setVisible(!this.isVisible)
+			}
+		}
+		return super.onOptionsItemSelected(item)
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -89,7 +109,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 		state.refresh is LoadState.NotLoading && adapter.itemCount == 0
 
 	private fun collectPagingData() = safeFlowCollect {
-		viewModel.pagingDataFlow.collectLatest {
+		viewModel.pagingData.collectLatest {
 			adapter.submitData(it)
 		}
 	}
