@@ -3,11 +3,9 @@ package com.joaoovf.jobsity.source
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.joaoovf.jobsity.domain.model.Show
-import com.joaoovf.jobsity.repository.ShowRepository
 
 class ShowListSource(
-	private val repository: ShowRepository,
-	private val pageSize: Int
+	private val fetch: suspend (position: Int) -> List<Show>,
 ) : PagingSource<Int, Show>() {
 
 	override fun getRefreshKey(state: PagingState<Int, Show>): Int? {
@@ -17,23 +15,24 @@ class ShowListSource(
 		}
 	}
 
-	override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Show> {
+	override suspend fun load(params: LoadParams<Int>): PagingSource.LoadResult<Int, Show> {
 		val position = params.key ?: STARTING_PAGE_INDEX
 		return try {
-			val data = repository.fetchAll(position)
-			val nextKey = position + (params.loadSize / pageSize)
-			LoadResult.Page(
+			val data = fetch(position)
+			val nextKey = position + (params.loadSize / PAGE_SIZE)
+			PagingSource.LoadResult.Page(
 				data = data,
 				prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1,
 				nextKey = nextKey
 			)
 		} catch (e: Exception) {
-			LoadResult.Error(e)
+			PagingSource.LoadResult.Error(e)
 		}
 	}
 
 	companion object {
 		private const val STARTING_PAGE_INDEX = 1
+		const val PAGE_SIZE = 250
 	}
 
 }

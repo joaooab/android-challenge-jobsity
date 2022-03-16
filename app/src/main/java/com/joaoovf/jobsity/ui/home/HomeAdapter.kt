@@ -27,8 +27,8 @@ class HomeAdapter(private val onClick: (show: Show) -> Unit) :
 	inner class ViewHolder(private val binding: ItemShowBinding) : RecyclerView.ViewHolder(binding.root) {
 		fun bind(show: Show) {
 			binding.apply {
-				textViewName.text = show.name
-				imageView.loadImage(show.image?.medium)
+				textName.text = show.name
+				imageShow.loadImage(show.image?.medium)
 				root.setOnClickListener {
 					onClick(show)
 				}
