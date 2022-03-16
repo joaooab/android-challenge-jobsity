@@ -8,7 +8,18 @@
 	<color name="black">#FF000000</color>
 	<color name="white">#FFFFFFFF</color>
 
+	<color name="colorDarkBlueGhost">#B8B7BD</color>
+	<color name="colorDarkBlueTopaz">#868490</color>
+	<color name="colorDarkBlueMidGray">#5C5B6A</color>
+	<color name="colorDarkBlueBrightGray">#383B4C</color>
+	<color name="colorDarkBlueTangaroa">#161F33</color>
 	<color name="colorWildSand">#F5F5F5</color>
 	<color name="colorMulledWine">#4E4B66</color>
 	<color name="colorMidnightExpress">#14142B</color>
+
+	<color name="colorRoseIllusion">#ED99A2</color>
+	<color name="colorRoseDeepBlush">#E67486</color>
+	<color name="colorRoseCeriseRed">#DF2E62</color>
+	<color name="colorRoseOld">#C22555</color>
+	<color name="colorRoseCardinal">#A61C48</color>
 </resources>

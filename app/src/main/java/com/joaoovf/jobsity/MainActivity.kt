@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
-		setSupportActionBar(binding.toolbar)
 		setupView()
 		handleObservers()
 	}
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 		lifecycleScope.launch {
 			repeatOnLifecycle(Lifecycle.State.STARTED) {
 				componentViewModel.components.collectLatest {
-					binding.toolbar.setVisible(it.toolbar)
+//					binding.toolbar.setVisible(it.toolbar)
 				}
 			}
 		}

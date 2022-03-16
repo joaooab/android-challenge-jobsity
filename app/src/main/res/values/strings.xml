@@ -1,7 +1,7 @@
 <resources>
 	<string name="app_name">android-challenge-jobsity</string>
 	<string name="title_home">Home</string>
-	<string name="title_dashboard">Dashboard</string>
+	<string name="title_favorites">Favorites</string>
 	<string name="title_notifications">Notifications</string>
 
 	<string name="retry">Try again</string>

@@ -25,7 +25,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
 	private val genreAdapter = DetailGenreAdapter()
 	private val episodeAdapter = DetailEpisodeAdapter {
 		findNavController().navigate(
-			DetailFragmentDirections.actionNavigationDetailToDetailEpisodeFragment(it.id)
+			DetailFragmentDirections.actionNavigationDetailToDetailEpisodeFragment(it.id, it.name)
 		)
 	}
 
