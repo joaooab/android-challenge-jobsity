@@ -7,16 +7,39 @@
 		android:layout_height="match_parent"
 		tools:context=".ui.home.HomeFragment">
 
+	<include
+			android:id="@+id/includeSearch"
+			layout="@layout/include_card_search_view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
 	<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/showList"
 			android:layout_width="0dp"
 			android:layout_height="0dp"
-			android:paddingVertical="8dp"
-			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+			android:paddingVertical="16dp"
+			app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+			app:spanCount="2"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			app:layout_constraintTop_toBottomOf="@id/includeSearch"
+			tools:listitem="@layout/item_show" />
+
+	<include
+			android:id="@+id/includeEmpty"
+			layout="@layout/include_search_empty"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:visibility="gone"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/includeSearch" />
 
 	<ProgressBar
 			style="?android:attr/progressBarStyleLarge"

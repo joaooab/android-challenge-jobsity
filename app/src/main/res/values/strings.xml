@@ -1,7 +1,6 @@
 <resources>
 	<string name="app_name">android-challenge-jobsity</string>
 	<string name="title_home">Home</string>
-	<string name="title_search">Search</string>
 	<string name="title_dashboard">Dashboard</string>
 	<string name="title_notifications">Notifications</string>
 
@@ -9,7 +8,7 @@
 	<string name="search_hint">Search</string>
 	<string name="loading_shows_error">Something wrong when fetching the shows</string>
 
-	<string name="message_search_info">Enter the name to find your shows</string>
+	<string name="message_search_info">Ups… No items found, try with another filter</string>
 	<string name="episodes">Episodes</string>
 	<string name="season_number">Season %d</string>
 	<string name="episode_number">Episode %d</string>

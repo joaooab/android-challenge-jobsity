@@ -28,16 +28,6 @@
 			tools:layout="@layout/fragment_notifications" />
 
 	<fragment
-			android:id="@+id/navigation_search"
-			android:name="com.joaoovf.jobsity.ui.search.SearchFragment"
-			android:label="@string/title_search"
-			tools:layout="@layout/fragment_search">
-		<action
-				android:id="@+id/action_navigation_search_to_navigation_detail"
-				app:destination="@id/navigation_detail" />
-	</fragment>
-
-	<fragment
 			android:id="@+id/navigation_detail"
 			android:name="com.joaoovf.jobsity.ui.detail.DetailFragment"
 			tools:layout="@layout/fragment_detail">
