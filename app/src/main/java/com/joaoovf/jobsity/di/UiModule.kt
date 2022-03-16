@@ -1,6 +1,8 @@
 package com.joaoovf.jobsity.di
 
 import com.joaoovf.jobsity.ui.ComponentViewModel
+import com.joaoovf.jobsity.ui.detail.DetailEpisodeAction
+import com.joaoovf.jobsity.ui.detail.DetailEpisodeViewModel
 import com.joaoovf.jobsity.ui.detail.DetailViewModel
 import com.joaoovf.jobsity.ui.home.HomeViewModel
 import com.joaoovf.jobsity.ui.search.SearchViewModel
@@ -11,5 +13,6 @@ val uiModule = module {
 	viewModel { ComponentViewModel() }
 	viewModel { HomeViewModel(get()) }
 	viewModel { SearchViewModel(get()) }
-	viewModel { DetailViewModel(get(), get(), get(), get()) }
+	viewModel { DetailViewModel(get(), get()) }
+	viewModel { DetailEpisodeViewModel(get()) }
 }

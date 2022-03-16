@@ -8,4 +8,5 @@ val domainModule = module {
 	factory<SearchShowsUseCase> { SearchShowsUseCaseImpl(get()) }
 	factory<LoadSeasonsWithEpisodesUseCase> { LoadSeasonsWithEpisodesUseCaseImpl(get()) }
 	factory<LoadShowUseCase> { LoadShowUseCaseImpl(get()) }
+	factory<LoadEpisodeUseCase> { LoadEpisodeUseCaseImpl(get()) }
 }
