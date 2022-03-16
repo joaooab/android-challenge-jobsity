@@ -44,7 +44,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 	}
 
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
-		if (item.itemId == R.id.menuSaleSearch) {
+		if (item.itemId == R.id.menuSearch) {
 			binding.includeSearch.root.apply {
 				setVisible(!this.isVisible)
 			}
@@ -109,7 +109,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 		state.refresh is LoadState.NotLoading && adapter.itemCount == 0
 
 	private fun collectPagingData() = safeFlowCollect {
-		viewModel.pagingDataFlow.collectLatest {
+		viewModel.pagingData.collectLatest {
 			adapter.submitData(it)
 		}
 	}

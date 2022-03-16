@@ -5,5 +5,5 @@ import com.joaoovf.jobsity.repository.ShowRepositoryImpl
 import org.koin.dsl.module
 
 val repositoryModule = module {
-	single<ShowRepository> { ShowRepositoryImpl(get()) }
+	single<ShowRepository> { ShowRepositoryImpl(get(), get()) }
 }

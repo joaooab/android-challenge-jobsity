@@ -17,7 +17,7 @@ class HomeViewModel(
 ) : ViewModel() {
 
 	private val stateAction: StateFlow<SearchAction>
-	val pagingDataFlow: Flow<PagingData<Show>>
+	val pagingData: Flow<PagingData<Show>>
 	val inputAction: (SearchAction) -> Unit
 
 	init {
@@ -29,7 +29,7 @@ class HomeViewModel(
 			initialValue = SearchAction.Query(null)
 		)
 
-		pagingDataFlow = stateAction
+		pagingData = stateAction
 			.filterIsInstance<SearchAction.Query>()
 			.flatMapLatest {
 				loadShowsPagedUseCase(it.term).flow

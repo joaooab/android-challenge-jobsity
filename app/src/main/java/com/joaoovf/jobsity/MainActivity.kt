@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.joaoovf.jobsity.databinding.ActivityMainBinding
-import com.joaoovf.jobsity.domain.extension.setVisible
 import com.joaoovf.jobsity.ui.ComponentViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 		val appBarConfiguration = AppBarConfiguration(
 			setOf(
 				R.id.navigation_home,
-				R.id.navigation_dashboard,
+				R.id.navigation_favorites,
 				R.id.navigation_notifications
 			)
 		)

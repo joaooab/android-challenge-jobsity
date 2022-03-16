@@ -6,9 +6,12 @@
 
 	<string name="retry">Try again</string>
 	<string name="search_hint">Search</string>
-	<string name="loading_shows_error">Something wrong when fetching the shows</string>
+	<string name="loading_shows_error">Something wrong when fetching the series</string>
 
 	<string name="message_search_info">Ups… No items found, try with another filter</string>
+	<string name="message_favorite">No favorite series found </string>
+	<string name="message_favorite_selected">Saved as a favorite </string>
+	<string name="message_favorite_unselected">Removed as a favorie </string>
 	<string name="episodes">Episodes</string>
 	<string name="season_number">Season %d</string>
 	<string name="episode_number">Episode %d</string>
