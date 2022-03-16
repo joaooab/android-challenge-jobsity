@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.joaoovf.jobsity.databinding.ItemEpisodeBinding
 import com.joaoovf.jobsity.domain.comparator.EpisodeComparator
+import com.joaoovf.jobsity.databinding.ItemEpisodeBinding
 import com.joaoovf.jobsity.domain.extension.loadImage
 import com.joaoovf.jobsity.domain.model.Episode
 
@@ -29,7 +29,7 @@ class DetailEpisodeAdapter(private val onClick: (episode: Episode) -> Unit) :
 
 		fun bind(episode: Episode) {
 			binding.apply {
-				imageEpisode.loadImage(episode.image?.medium)
+				imageEpisode.loadImage(episode.image.medium)
 				textEpisodeName.text = episode.name
 				root.setOnClickListener {
 					onClick(episode)

@@ -26,12 +26,6 @@
 	</fragment>
 
 	<fragment
-			android:id="@+id/navigation_favorites2"
-			android:name="com.joaoovf.jobsity.ui.notifications.NotificationsFragment"
-			android:label="@string/title_notifications"
-			tools:layout="@layout/fragment_notifications" />
-
-	<fragment
 			android:id="@+id/navigation_detail"
 			android:name="com.joaoovf.jobsity.ui.detail.DetailFragment"
 			tools:layout="@layout/fragment_detail"

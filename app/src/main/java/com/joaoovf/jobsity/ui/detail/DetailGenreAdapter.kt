@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.joaoovf.jobsity.databinding.ItemGenreBinding
 import com.joaoovf.jobsity.domain.comparator.StringComparator
+import com.joaoovf.jobsity.databinding.ItemGenreBinding
 
 class DetailGenreAdapter : ListAdapter<String, DetailGenreAdapter.ViewHolder>(StringComparator()) {
 

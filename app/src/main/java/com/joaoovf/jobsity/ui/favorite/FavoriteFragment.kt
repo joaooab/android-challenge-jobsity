@@ -3,8 +3,8 @@ package com.joaoovf.jobsity.ui.favorite
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import com.joaoovf.jobsity.databinding.FragmentFavoritesBinding
 import com.joaoovf.jobsity.domain.base.BaseFragment
+import com.joaoovf.jobsity.databinding.FragmentFavoritesBinding
 import com.joaoovf.jobsity.domain.extension.gone
 import com.joaoovf.jobsity.domain.extension.safeFlowCollect
 import com.joaoovf.jobsity.domain.extension.show

@@ -5,29 +5,24 @@ import android.view.View
 import androidx.core.text.HtmlCompat
 import androidx.navigation.fragment.navArgs
 import com.joaoovf.jobsity.R
-import com.joaoovf.jobsity.databinding.FragmentEpisodeDetailBinding
-import com.joaoovf.jobsity.domain.State
 import com.joaoovf.jobsity.domain.base.BaseFragment
+import com.joaoovf.jobsity.domain.base.State
+import com.joaoovf.jobsity.databinding.FragmentEpisodeDetailBinding
 import com.joaoovf.jobsity.domain.extension.gone
 import com.joaoovf.jobsity.domain.extension.loadImage
 import com.joaoovf.jobsity.domain.extension.safeFlowCollect
 import com.joaoovf.jobsity.domain.extension.show
-import com.joaoovf.jobsity.ui.ComponentViewModel
-import com.joaoovf.jobsity.ui.Components
 import kotlinx.coroutines.flow.collectLatest
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailEpisodeFragment :
 	BaseFragment<FragmentEpisodeDetailBinding>(FragmentEpisodeDetailBinding::inflate) {
 
-	private val componentViewModel: ComponentViewModel by sharedViewModel()
 	private val viewModel: DetailEpisodeViewModel by viewModel()
 	private val arguments by navArgs<DetailEpisodeFragmentArgs>()
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		componentViewModel.withComponents = Components(toolbar = true)
 		setupView()
 	}
 

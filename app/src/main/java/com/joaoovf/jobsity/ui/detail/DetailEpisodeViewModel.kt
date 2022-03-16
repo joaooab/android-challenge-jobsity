@@ -2,7 +2,7 @@ package com.joaoovf.jobsity.ui.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.joaoovf.jobsity.domain.State
+import com.joaoovf.jobsity.domain.base.State
 import com.joaoovf.jobsity.domain.interactor.LoadEpisodeUseCase
 import com.joaoovf.jobsity.domain.model.Episode
 import kotlinx.coroutines.CoroutineDispatcher

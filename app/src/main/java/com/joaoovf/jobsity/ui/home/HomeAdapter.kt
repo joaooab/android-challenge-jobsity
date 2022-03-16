@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.joaoovf.jobsity.databinding.ItemShowBinding
 import com.joaoovf.jobsity.domain.comparator.ShowComparator
+import com.joaoovf.jobsity.databinding.ItemShowBinding
 import com.joaoovf.jobsity.domain.extension.loadImage
 import com.joaoovf.jobsity.domain.model.Show
 

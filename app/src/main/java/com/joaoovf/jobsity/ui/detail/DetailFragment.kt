@@ -12,20 +12,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.joaoovf.jobsity.R
-import com.joaoovf.jobsity.databinding.FragmentDetailBinding
-import com.joaoovf.jobsity.domain.State
 import com.joaoovf.jobsity.domain.base.BaseFragment
+import com.joaoovf.jobsity.domain.base.State
+import com.joaoovf.jobsity.databinding.FragmentDetailBinding
 import com.joaoovf.jobsity.domain.extension.*
-import com.joaoovf.jobsity.ui.ComponentViewModel
-import com.joaoovf.jobsity.ui.Components
 import com.joaoovf.jobsity.ui.detail.dialog.SelectSeasonDialog
 import kotlinx.coroutines.flow.collectLatest
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding::inflate) {
 
-	private val componentViewModel: ComponentViewModel by sharedViewModel()
 	private val viewModel: DetailViewModel by viewModel()
 	private val arguments by navArgs<DetailFragmentArgs>()
 	private lateinit var menu: Menu
@@ -71,7 +67,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		componentViewModel.withComponents = Components(toolbar = true)
 		setupView()
 	}
 
