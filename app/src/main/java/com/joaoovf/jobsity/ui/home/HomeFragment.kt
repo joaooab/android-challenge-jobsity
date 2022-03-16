@@ -11,21 +11,17 @@ import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import com.google.android.material.snackbar.Snackbar
 import com.joaoovf.jobsity.R
-import com.joaoovf.jobsity.databinding.FragmentHomeBinding
 import com.joaoovf.jobsity.domain.base.BaseFragment
+import com.joaoovf.jobsity.databinding.FragmentHomeBinding
 import com.joaoovf.jobsity.domain.extension.*
-import com.joaoovf.jobsity.ui.ComponentViewModel
-import com.joaoovf.jobsity.ui.Components
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
-	private val componentViewModel: ComponentViewModel by sharedViewModel()
 	private val viewModel: HomeViewModel by viewModel()
 	private val adapter = HomeAdapter {
 		findNavController().navigate(
@@ -54,7 +50,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		componentViewModel.withComponents = Components(toolbar = true)
 		setupView()
 	}
 

@@ -9,7 +9,7 @@
 	<string name="loading_shows_error">Something wrong when fetching the series</string>
 
 	<string name="message_search_info">Ups… No items found, try with another filter</string>
-	<string name="message_favorite">No favorite series found </string>
+	<string name="message_favorite">Save some series as favorites to appear here</string>
 	<string name="message_favorite_selected">Saved as a favorite </string>
 	<string name="message_favorite_unselected">Removed as a favorie </string>
 	<string name="episodes">Episodes</string>

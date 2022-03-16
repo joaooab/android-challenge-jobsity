@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "android-challenge-jobsity"
 include ':app'
+include ':app:domain'
+include ':app:data:remote'
+include ':app:data:repository'
+include ':app:data:local'
