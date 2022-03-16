@@ -1,13 +1,16 @@
 <resources>
 	<string name="app_name">android-challenge-jobsity</string>
 	<string name="title_home">Home</string>
-	<string name="title_search">Pesquisar</string>
+	<string name="title_search">Search</string>
 	<string name="title_dashboard">Dashboard</string>
 	<string name="title_notifications">Notifications</string>
+	<string name="title_detail">Notifications</string>
 
-	<string name="retry">Tentar novamente</string>
-	<string name="search_hint">Pesquisar</string>
-	<string name="loading_shows_error">Erro ao buscar séries.</string>
+	<string name="retry">Try again</string>
+	<string name="search_hint">Search</string>
+	<string name="loading_shows_error">Something wrong when fetching the shows</string>
 
-	<string name="message_search_info">Digite o nome para encontrar suas séries!</string>
+	<string name="message_search_info">Enter the name to find your shows</string>
+	<string name="episodes">Episodes</string>
+	<string name="season_number">Season %d</string>
 </resources>

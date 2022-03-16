@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/cardSearch"
+		android:layout_width="match_parent"
+		app:cardElevation="4dp"
+		app:cardCornerRadius="16dp"
+		android:layout_height="wrap_content">
+
+	<androidx.appcompat.widget.SearchView
+			android:id="@+id/searchView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:imeOptions="actionSearch"
+			android:inputType="text"
+			app:closeIcon="@drawable/ic_close"
+			app:defaultQueryHint="@string/search_hint"
+			app:iconifiedByDefault="false"
+			app:queryBackground="@null"
+			android:paddingHorizontal="16dp"
+			app:searchIcon="@drawable/ic_baseline_search_24" />
+</androidx.cardview.widget.CardView>

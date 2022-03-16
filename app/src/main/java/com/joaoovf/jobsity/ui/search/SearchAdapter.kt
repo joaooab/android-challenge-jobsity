@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.joaoovf.jobsity.databinding.ItemShowBinding
 import com.joaoovf.jobsity.domain.comparator.ShowComparator
 import com.joaoovf.jobsity.domain.extension.loadImage
-import com.joaoovf.jobsity.domain.model.SearchShow
 import com.joaoovf.jobsity.domain.model.Show
 
-class SearchAdapter : ListAdapter<Show, SearchAdapter.ViewHolder>(ShowComparator()) {
+class SearchAdapter(private val onClick: (show: Show) -> Unit) :
+	ListAdapter<Show, SearchAdapter.ViewHolder>(ShowComparator()) {
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 		val layoutInflater = LayoutInflater.from(parent.context)
@@ -26,8 +26,13 @@ class SearchAdapter : ListAdapter<Show, SearchAdapter.ViewHolder>(ShowComparator
 
 	inner class ViewHolder(private val binding: ItemShowBinding) : RecyclerView.ViewHolder(binding.root) {
 		fun bind(show: Show) {
-			binding.textViewName.text = show.name
-			binding.imageView.loadImage(show.image?.medium)
+			binding.apply {
+				textViewName.text = show.name
+				imageView.loadImage(show.image?.medium)
+				root.setOnClickListener {
+					onClick(show)
+				}
+			}
 		}
 	}
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:id="@+id/emptyView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:paddingVertical="78dp"
+		android:gravity="center_horizontal"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/cardSearch">
+
+	<androidx.appcompat.widget.AppCompatImageView
+			android:layout_width="match_parent"
+			android:layout_height="200dp"
+			android:src="@drawable/iv_search"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+			style="@style/TextLargeBold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginVertical="16dp"
+			android:layout_marginHorizontal="24dp"
+			android:textAlignment="center"
+			android:text="@string/message_search_info" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -13,24 +13,32 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 
-		<ImageView
+		<androidx.cardview.widget.CardView
+				android:id="@+id/cardImage"
 				android:layout_width="64dp"
 				android:layout_height="64dp"
 				android:layout_margin="16dp"
-				tools:srcCompat="@tools:sample/avatars"
-				android:id="@+id/imageView"
+				app:cardCornerRadius="8dp"
+				app:cardElevation="4dp"
 				app:layout_constraintTop_toTopOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintBottom_toBottomOf="parent"/>
+				app:layout_constraintBottom_toBottomOf="parent">
 
-		<TextView
+			<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/imageView"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					tools:srcCompat="@tools:sample/avatars" />
+		</androidx.cardview.widget.CardView>
+
+		<androidx.appcompat.widget.AppCompatTextView
 				style="@style/TextMediumBold"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:id="@+id/textViewName"
 				android:layout_marginHorizontal="16dp"
 				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintStart_toEndOf="@+id/imageView"
+				app:layout_constraintStart_toEndOf="@id/cardImage"
 				app:layout_constraintBottom_toBottomOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
 				tools:text="Under the Dome" />

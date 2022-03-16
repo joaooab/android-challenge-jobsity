@@ -1,14 +1,13 @@
 package com.joaoovf.jobsity.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.google.android.material.snackbar.Snackbar
 import com.joaoovf.jobsity.R
 import com.joaoovf.jobsity.databinding.FragmentHomeBinding
+import com.joaoovf.jobsity.domain.base.BaseFragment
 import com.joaoovf.jobsity.domain.extension.gone
 import com.joaoovf.jobsity.domain.extension.safeFlowCollect
 import com.joaoovf.jobsity.domain.extension.show
@@ -18,25 +17,20 @@ import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
-	private var _binding: FragmentHomeBinding? = null
-
-	private val binding get() = _binding!!
 	private val componentViewModel: ComponentViewModel by sharedViewModel()
 	private val viewModel: HomeViewModel by viewModel()
-	private val adapter = HomeAdapter()
+	private val adapter = HomeAdapter {
+		findNavController().navigate(
+			HomeFragmentDirections.actionNavigationHomeToNavigationDetail(it.id)
+		)
+	}
 
-	override fun onCreateView(
-		inflater: LayoutInflater,
-		container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
-		_binding = FragmentHomeBinding.inflate(inflater, container, false)
-		val root: View = binding.root
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
 		componentViewModel.withComponents = Components(toolbar = true)
 		setupView()
-		return root
 	}
 
 	private fun setupView() {
@@ -80,11 +74,6 @@ class HomeFragment : Fragment() {
 			)
 			.setAction(R.string.retry) { adapter.retry() }
 			.show()
-	}
-
-	override fun onDestroyView() {
-		super.onDestroyView()
-		_binding = null
 	}
 
 }
