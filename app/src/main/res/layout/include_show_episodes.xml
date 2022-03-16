@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+	<androidx.appcompat.widget.AppCompatTextView
+			style="@style/TitleSmallBold"
+			android:id="@+id/textEpisodes"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="16dp"
+			android:text="@string/episodes"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+			style="@style/TextMediumBold"
+			android:id="@+id/textSeason"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			android:text="@string/season_number"
+			android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/textEpisodes" />
+
+	<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/listEpisodes"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+			android:orientation="horizontal"
+			android:layout_margin="16dp"
+			android:nestedScrollingEnabled="true"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/textSeason"
+			tools:listitem="@layout/item_episode"
+			tools:itemCount="3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

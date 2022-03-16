@@ -3,14 +3,14 @@ package com.joaoovf.jobsity.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.joaoovf.jobsity.databinding.ItemShowBinding
 import com.joaoovf.jobsity.domain.comparator.ShowComparator
 import com.joaoovf.jobsity.domain.extension.loadImage
 import com.joaoovf.jobsity.domain.model.Show
 
-class HomeAdapter : PagingDataAdapter<Show, HomeAdapter.ViewHolder>(ShowComparator()) {
+class HomeAdapter(private val onClick: (show: Show) -> Unit) :
+	PagingDataAdapter<Show, HomeAdapter.ViewHolder>(ShowComparator()) {
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.ViewHolder {
 		val layoutInflater = LayoutInflater.from(parent.context)
@@ -26,8 +26,13 @@ class HomeAdapter : PagingDataAdapter<Show, HomeAdapter.ViewHolder>(ShowComparat
 
 	inner class ViewHolder(private val binding: ItemShowBinding) : RecyclerView.ViewHolder(binding.root) {
 		fun bind(show: Show) {
-			binding.textViewName.text = show.name
-			binding.imageView.loadImage(show.image?.medium)
+			binding.apply {
+				textViewName.text = show.name
+				imageView.loadImage(show.image?.medium)
+				root.setOnClickListener {
+					onClick(show)
+				}
+			}
 		}
 	}
 

@@ -1,14 +1,13 @@
 package com.joaoovf.jobsity.ui.search
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.joaoovf.jobsity.R
 import com.joaoovf.jobsity.databinding.FragmentSearchBinding
 import com.joaoovf.jobsity.domain.State
+import com.joaoovf.jobsity.domain.base.BaseFragment
 import com.joaoovf.jobsity.domain.extension.*
 import com.joaoovf.jobsity.ui.ComponentViewModel
 import com.joaoovf.jobsity.ui.Components
@@ -19,30 +18,25 @@ import kotlinx.coroutines.flow.filterNotNull
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SearchFragment : Fragment() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
 
-	private var _binding: FragmentSearchBinding? = null
-
-	private val binding get() = _binding!!
 	private val componentViewModel: ComponentViewModel by sharedViewModel()
 	private val viewModel: SearchViewModel by viewModel()
-	private val adapter = SearchAdapter()
+	private val adapter = SearchAdapter {
+		findNavController().navigate(
+			SearchFragmentDirections.actionNavigationSearchToNavigationDetail(it.id)
+		)
+	}
 
-	override fun onCreateView(
-		inflater: LayoutInflater,
-		container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
-		_binding = FragmentSearchBinding.inflate(inflater, container, false)
-		val root: View = binding.root
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
 		componentViewModel.withComponents = Components(toolbar = false)
 		setupView()
-		return root
 	}
 
 	private fun setupView() {
 		binding.list.adapter = adapter
-		binding.searchView.apply {
+		binding.includeSearch.searchView.apply {
 			setQuery(viewModel.getCurrentQuery(), false)
 		}
 		collectSearchQuery()
@@ -50,7 +44,7 @@ class SearchFragment : Fragment() {
 	}
 
 	private fun collectSearchQuery() = safeFlowCollect {
-		binding.searchView.collectInput()
+		binding.includeSearch.searchView.collectInput()
 			.debounce(300)
 			.distinctUntilChanged()
 			.filterNotNull()
@@ -65,19 +59,19 @@ class SearchFragment : Fragment() {
 				is State.Loading -> {
 					binding.loading.show()
 					binding.list.gone()
-					binding.emptyView.gone()
+					binding.includeEmpty.emptyView.gone()
 				}
 				is State.Success -> {
 					adapter.submitList(state.data)
 					binding.loading.gone()
 					binding.list.setVisible(!state.data.isNullOrEmpty())
-					binding.emptyView.setVisible(state.data.isNullOrEmpty())
+					binding.includeEmpty.emptyView.setVisible(state.data.isNullOrEmpty())
 				}
 				is State.Error -> {
 					showError()
 					binding.loading.gone()
 					binding.list.gone()
-					binding.emptyView.show()
+					binding.includeEmpty.emptyView.show()
 				}
 			}
 		}
@@ -93,8 +87,4 @@ class SearchFragment : Fragment() {
 			.show()
 	}
 
-	override fun onDestroyView() {
-		super.onDestroyView()
-		_binding = null
-	}
 }
