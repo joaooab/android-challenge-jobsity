@@ -48,7 +48,7 @@ class DetailEpisodeFragment :
 					binding.loading.gone()
 					binding.apply {
 						val data = state.data
-						imageDetail.loadImage(data.image?.medium)
+						imageDetail.loadImage(data.image.medium)
 						textNameDetail.text = data.name
 						textSeason.text = getString(R.string.season_number, data.season)
 						textEpisode.text = getString(R.string.episode_number, data.number)

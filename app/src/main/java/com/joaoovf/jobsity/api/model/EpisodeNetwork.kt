@@ -1,7 +1,7 @@
 package com.joaoovf.jobsity.api.model
 
 data class EpisodeNetwork(
-	val id: Int?,
+	val id: Int,
 	val image: ImageNetwork?,
 	val name: String?,
 	val number: Int?,

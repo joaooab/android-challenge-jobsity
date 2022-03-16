@@ -37,23 +37,23 @@ class ShowRepositoryImpl(
 ) : ShowRepository {
 
 	override suspend fun fetchAll(page: Int): List<Show> {
-		return api.fetchAll(page)
+		return api.fetchAll(page).mapList { toModel() }
 	}
 
 	override suspend fun fetchById(id: Int): Show? {
-		return api.fetchById(id)
+		return api.fetchById(id)?.toModel()
 	}
 
 	override suspend fun fetchByQuery(query: String?): List<Show> {
-		return api.fetchByQuery(query).map { it.show }
+		return api.fetchByQuery(query).mapList { show.toModel() }
 	}
 
 	override suspend fun fetchAllEpisodes(id: Int): List<Episode> {
-		return api.fetchAllEpisodes(id)
+		return api.fetchAllEpisodes(id).mapList { toModel() }
 	}
 
 	override suspend fun fetchEpisodeByI(id: Int): Episode? {
-		return api.fetchEpisodeById(id)
+		return api.fetchEpisodeById(id)?.toModel()
 	}
 
 	override fun loadAll(): Flow<List<Show>> {
