@@ -13,7 +13,8 @@
 			app:layout_constraintTop_toTopOf="@id/layoutDetail"
 			app:layout_constraintBottom_toBottomOf="@id/layoutDetail"
 			app:layout_constraintStart_toStartOf="parent"
-			tools:srcCompat="@tools:sample/avatars" />
+			android:scaleType="centerCrop"
+			tools:srcCompat="@drawable/ic_image" />
 
 	<androidx.appcompat.widget.LinearLayoutCompat
 			android:id="@+id/layoutDetail"

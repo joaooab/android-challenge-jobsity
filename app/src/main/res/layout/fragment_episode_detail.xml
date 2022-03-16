@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/imageDetail"
+					android:layout_width="100dp"
+					android:layout_height="0dp"
+					android:layout_marginStart="16dp"
+					app:layout_constraintTop_toTopOf="@id/layoutDetail"
+					app:layout_constraintBottom_toBottomOf="@id/layoutDetail"
+					app:layout_constraintStart_toStartOf="parent"
+					android:scaleType="centerCrop"
+					tools:srcCompat="@drawable/ic_image" />
+
+			<androidx.appcompat.widget.LinearLayoutCompat
+					android:id="@+id/layoutDetail"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_margin="16dp"
+					app:layout_constraintStart_toEndOf="@id/imageDetail"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintEnd_toEndOf="parent">
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/textNameDetail"
+						style="@style/TitleSmallBold"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						tools:text="Pillot" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/textSeason"
+						style="@style/TextSmall"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						tools:text="Season 1" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/textEpisode"
+						style="@style/TextSmall"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						tools:text="Episode 1" />
+
+			</androidx.appcompat.widget.LinearLayoutCompat>
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/TextSmall"
+					android:id="@+id/textSummary"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_margin="16dp"
+					app:layout_constraintTop_toBottomOf="@+id/layoutDetail"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					tools:text="Breaking Bad follows protagonist Walter White, a chemistry teacher who lives in New Mexico with his wife and teenage son who has cerebral palsy. White is diagnosed with Stage III cancer and given a prognosis of two years left to live. With a new sense of fearlessness based on his medical prognosis, and a desire to secure his family's financial security, White chooses to enter a dangerous world of drugs and crime and ascends to power in this world. The series explores how a fatal diagnosis such as White's releases a typical man from the daily concerns and constraints of normal society and follows his transformation from mild family man to a kingpin of the drug trade." />
+
+		<ProgressBar
+				android:id="@+id/loading"
+				style="?android:attr/progressBarStyleLarge"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				android:visibility="gone"
+				tools:visibility="visible"
+				app:layout_constraintBottom_toBottomOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

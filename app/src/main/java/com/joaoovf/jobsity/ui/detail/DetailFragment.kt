@@ -3,6 +3,7 @@ package com.joaoovf.jobsity.ui.detail
 import android.os.Bundle
 import android.view.View
 import androidx.core.text.HtmlCompat
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.joaoovf.jobsity.R
 import com.joaoovf.jobsity.databinding.FragmentDetailBinding
@@ -23,7 +24,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
 	private val arguments by navArgs<DetailFragmentArgs>()
 	private val genreAdapter = DetailGenreAdapter()
 	private val episodeAdapter = DetailEpisodeAdapter {
-
+		findNavController().navigate(
+			DetailFragmentDirections.actionNavigationDetailToDetailEpisodeFragment(it.id)
+		)
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

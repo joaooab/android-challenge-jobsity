@@ -21,4 +21,7 @@ interface ShowAPI {
 	@GET("/shows/{id}/episodes")
 	suspend fun fetchAllEpisodes(@Path("id") id: Int): List<Episode>
 
+	@GET("/episodes/{id}")
+	suspend fun fetchEpisodeById(@Path("id") id: Int): Episode?
+
 }

@@ -13,6 +13,8 @@ interface ShowRepository {
 	suspend fun fetchByQuery(query: String?): List<Show>
 
 	suspend fun fetchAllEpisodes(id: Int): List<Episode>
+
+	suspend fun fetchEpisodeByI(id: Int): Episode?
 }
 
 class ShowRepositoryImpl(private val showAPI: ShowAPI) : ShowRepository {
@@ -31,6 +33,10 @@ class ShowRepositoryImpl(private val showAPI: ShowAPI) : ShowRepository {
 
 	override suspend fun fetchAllEpisodes(id: Int): List<Episode> {
 		return showAPI.fetchAllEpisodes(id)
+	}
+
+	override suspend fun fetchEpisodeByI(id: Int): Episode? {
+		return showAPI.fetchEpisodeById(id)
 	}
 
 }
