@@ -1,5 +1,6 @@
 package com.joaoovf.jobsity.di
 
+import com.joaoovf.jobsity.ui.auth.AuthViewModel
 import com.joaoovf.jobsity.ui.detail.DetailEpisodeViewModel
 import com.joaoovf.jobsity.ui.detail.DetailViewModel
 import com.joaoovf.jobsity.ui.favorite.FavoriteViewModel
@@ -12,4 +13,5 @@ val uiModule = module {
 	viewModel { DetailViewModel(get(), get(), get(), get()) }
 	viewModel { DetailEpisodeViewModel(get()) }
 	viewModel { FavoriteViewModel(get()) }
+	viewModel { AuthViewModel(get(), get()) }
 }
