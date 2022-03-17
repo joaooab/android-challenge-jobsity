@@ -11,4 +11,6 @@ val domainModule = module {
 	factory<LoadAllFavoriteShowUseCase> { LoadAllFavoriteShowUseCaseImpl(get()) }
 	factory<LoadFavoriteShowByIdUseCase> { LoadFavoriteShowByIdUseCaseImpl(get()) }
 	factory<FavoriteShowUseCase> { FavoriteShowUseCaseImpl(get()) }
+	factory<LoginUseCase> { LoginUseCaseImpl(get()) }
+	factory<RegisterUseCase> { RegisterUseCaseImpl(get()) }
 }

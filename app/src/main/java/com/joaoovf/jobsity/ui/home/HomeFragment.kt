@@ -123,7 +123,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 		Snackbar
 			.make(
 				requireView(),
-				getString(R.string.loading_shows_error),
+				getString(R.string.message_shows_error),
 				Snackbar.LENGTH_INDEFINITE
 			)
 			.setAction(R.string.retry) { adapter.retry() }

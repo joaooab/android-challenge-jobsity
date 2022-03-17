@@ -7,4 +7,5 @@ import org.koin.dsl.module
 val localModule = module {
 	single { AppDatabase.getInstance(androidContext()) }
 	single { get<AppDatabase>().showDAO() }
+	single { get<AppDatabase>().authDAO() }
 }
